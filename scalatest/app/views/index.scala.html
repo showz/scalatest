@@ -1,0 +1,24 @@
+@(users: Seq[User])
+
+@main("User database") {
+<div>
+    <div id="users">
+        <h2>Insert a User here:</h2>
+
+        <form action="/insert/user" method="POST">
+            <input name="name" type="text" placeholder="name"/>
+            <input name="gender" type="text" placeholder="gender"/>
+            <input type="submit"/>
+        </form>
+
+        <h2>Users:</h2>
+        <table>
+            <tr><th>id</th><th>Name</th><th>Gender</th></tr>
+            @for(u <- users){
+            <tr><td>@u.id</td><td>@u.name</td><td>@u.gender</td></tr>
+            }
+        </table>
+
+    </div>
+</div>
+}
